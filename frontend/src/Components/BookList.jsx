@@ -7,7 +7,7 @@ function BookList(props) {
       <ul>
         {props.books.map((book) => {
           return (
-            <li key={book}>
+            <li key={book.index}>
               <img src={book.bookCoverImage} alt="Book cover" />
               <h2>{book.bookName}</h2>
               <h3>{book.authorName}</h3>
