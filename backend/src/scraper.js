@@ -8,7 +8,7 @@ async function performScraping(searchTerm) {
     // Make an HTTP GET request to the specified URL
     const axiosResponse = await axios.request({
       method: "GET",
-      url: `https://libgen.is/fiction/?q=${searchTerm}`,
+      url: `https://libgen.is/fiction/?q=${searchTerm}&language=English&format=epub`,
       headers: {
         // Set the User-Agent header to identify the client making the request as a web browser
         "User-Agent":
@@ -59,11 +59,12 @@ async function performScraping(searchTerm) {
         const downloadLink = `https://cdn1.booksdl.org/get.php?md5=${md5}&key=017CTP22EVYW2J2L&mirr=1`;
 
         // Get the book cover image from openlibrary.org
-        const bookCoverImage = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
+        const bookCoverImage = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
 
         // If the book cover image is not found, add a placeholder image
-        if (bookCoverImage === `https://covers.openlibrary.org/b/isbn/-L.jpg`) {
+        if (!bookCoverImage) {
           books.push({
+            index: index,
             authorName: authorName,
             bookName: bookName,
             downloadLink: downloadLink,
@@ -76,6 +77,7 @@ async function performScraping(searchTerm) {
 
         // Add the author name, book name, and download link to the books array
         books.push({
+          index: index,
           authorName: authorName,
           bookName: bookName,
           downloadLink: downloadLink,
