@@ -30,6 +30,13 @@ async function performScraping(searchTerm) {
         const authorName = $(row).find(".catalog_authors").find("a").text();
 
         const bookName = $(row).find("td").find("p").find("a").text();
+
+        //cut the book name at the first colon
+        let bookNameCut = bookName.split(":")[0];
+
+        //cut the book name at the first bracket
+        bookNameCut = bookNameCut.split("(")[0];
+
         let isbn = $(row)
           .find(".catalog_identifier")
           .text()
@@ -59,27 +66,13 @@ async function performScraping(searchTerm) {
         const downloadLink = `https://cdn1.booksdl.org/get.php?md5=${md5}&key=017CTP22EVYW2J2L&mirr=1`;
 
         // Get the book cover image from openlibrary.org
-        const bookCoverImage = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
-
-        // If the book cover image is not found, add a placeholder image
-        if (!bookCoverImage) {
-          books.push({
-            index: index,
-            authorName: authorName,
-            bookName: bookName,
-            downloadLink: downloadLink,
-            ISBN: isbn,
-            bookCoverImage:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png",
-          });
-          return;
-        }
+        let bookCoverImage = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
 
         // Add the author name, book name, and download link to the books array
         books.push({
           index: index,
           authorName: authorName,
-          bookName: bookName,
+          bookName: bookNameCut,
           downloadLink: downloadLink,
           ISBN: isbn,
           bookCoverImage: bookCoverImage,
