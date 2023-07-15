@@ -1,8 +1,10 @@
 import axios from "axios";
 import BookList from "./Components/BookList";
+import "./style.css";
 
 import { useState } from "react";
 import Popular from "./Components/Popular";
+import Footer from "./Components/Footer";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -30,13 +32,17 @@ function App() {
 
   return (
     <div>
-      <h1>React App</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="searchTerm" />
-        <button type="submit">Search</button>
-      </form>
+      <div className="searchContainer">
+        <a className="heading" href="/">
+          <img className="logo" src="../public/Scribble.png" />
+        </a>
 
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="searchTerm" placeholder="Search Books..." />
+        </form>
+      </div>
       {books.length > 0 ? <BookList books={books} /> : <Popular />}
+      <Footer />
     </div>
   );
 }
