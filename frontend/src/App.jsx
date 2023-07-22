@@ -1,47 +1,65 @@
-import axios from "axios";
 import BookList from "./Components/BookList";
 import "./style.css";
-
-import { useState } from "react";
+import Search from "./Components/Search";
 import Popular from "./Components/Popular";
 import Footer from "./Components/Footer";
+import axios from "axios";
+import { useState } from "react";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [popularBookSearch, setPopularBookSearch] = useState([]);
 
   // Define a function to handle the form submission
   const handleSubmit = async (event) => {
-    // Prevent the default form submission behavior
     event.preventDefault();
+    let searchTerm = event.target.searchTerm.value;
 
-    // Extract the search term from the form
-    const searchTerm = event.target.searchTerm.value;
-
-    // Make an HTTP GET request to the backend API
     const axiosResponse = await axios.request({
       method: "GET",
-      url: `http://localhost:3000/api/search?searchTerm=${searchTerm}`,
+      url: `https://ebook-site.fly.dev/api/search?searchTerm=${searchTerm}`,
+      // url: `http://localhost:8080/api/search?searchTerm=${searchTerm}`,
     });
 
-    // Log the response data to the console
-    console.log(axiosResponse.data.book);
+    if (axiosResponse.data.book.length === 0) {
+      alert("No results found. Please try again.");
+    } else {
+      setBooks(axiosResponse.data.book);
+    }
+  };
 
-    // Set the books state variable to the response data
-    setBooks(axiosResponse.data.book);
+  const handleClick = async (event) => {
+    event.preventDefault();
+
+    let searchTerm = event.target.value;
+
+    const axiosResponse = await axios.request({
+      method: "GET",
+      url: `https://ebook-site.fly.dev/api/search?searchTerm=${searchTerm}`,
+      // url: `http://localhost:8080/api/search?searchTerm=${searchTerm}`,
+    });
+
+    if (axiosResponse.data.book.length === 0) {
+      alert("No results found. Please try again.");
+    } else {
+      setBooks(axiosResponse.data.book);
+      console.log(searchTerm);
+      setPopularBookSearch(axiosResponse.data.book);
+    }
   };
 
   return (
     <div>
-      <div className="searchContainer">
-        <a className="heading" href="/">
-          <img className="logo" src="../public/Scribble.png" />
-        </a>
+      <Search
+        handleSubmit={handleSubmit}
+        popularBookSearch={popularBookSearch}
+      />
+      {books.length > 0 ? (
+        <BookList books={books} />
+      ) : (
+        <Popular handleClick={handleClick} />
+      )}
 
-        <form onSubmit={handleSubmit}>
-          <input type="text" name="searchTerm" placeholder="Search Books..." />
-        </form>
-      </div>
-      {books.length > 0 ? <BookList books={books} /> : <Popular />}
       <Footer />
     </div>
   );

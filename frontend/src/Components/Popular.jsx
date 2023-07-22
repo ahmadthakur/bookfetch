@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Popular = () => {
+const Popular = (props) => {
   // Initialize state for popular books
   const [popularBooks, setPopularBooks] = useState([]);
 
@@ -38,9 +38,15 @@ const Popular = () => {
               <div className="bookInfo">
                 <h1>{book.title}</h1>
                 <p className="author">{book.author}</p>
-                <a href={book.title}>
-                  <button className="bookButton">Search Book</button>
-                </a>
+
+                <button
+                  value={book.title + " " + book.author}
+                  className="bookButton"
+                  // eslint-disable-next-line react/prop-types
+                  onClick={props.handleClick}
+                >
+                  Search Book
+                </button>
               </div>
             </li>
           );
