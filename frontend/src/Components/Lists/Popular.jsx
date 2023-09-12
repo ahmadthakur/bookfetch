@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const Popular = (props) => {
+import "./lists.scss";
+
+const Popular = () => {
   // Initialize state for popular books
   const [popularBooks, setPopularBooks] = useState([]);
 
@@ -23,30 +26,25 @@ const Popular = (props) => {
   }, []);
 
   return (
-    <div>
-      <h1 className="pageTitle">Popular This Week</h1>
+    <div className="list">
+      <h1 className="title">Popular This Week</h1>
+      <p className="subheading">Current Top Books: Must-Reads of the Moment</p>
 
-      <ul className="bookGrid">
+      <ul className="book__grid">
         {popularBooks.map((book) => {
           return (
-            <li className="bookListItem" key={book.rank}>
-              <img
-                className="bookCover"
-                src={book.book_image}
-                alt="Book cover"
-              />
-              <div className="bookInfo">
-                <h1>{book.title}</h1>
-                <p className="author">{book.author}</p>
+            <li className="book__list__item" key={book.rank}>
+              <Link to={`/book/${book.title}`}>
+                <img
+                  className="book__cover"
+                  src={book.book_image}
+                  alt="Book cover"
+                />
+              </Link>
 
-                <button
-                  value={book.title + " " + book.author}
-                  className="bookButton"
-                  // eslint-disable-next-line react/prop-types
-                  onClick={props.handleClick}
-                >
-                  Search Book
-                </button>
+              <div className="book__info">
+                <h1 className="book__title">{book.title}</h1>
+                <p className="book__author">{book.author}</p>
               </div>
             </li>
           );

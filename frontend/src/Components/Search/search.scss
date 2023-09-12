@@ -1,0 +1,33 @@
+.search__container {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid #d5d7e0;
+  justify-content: center;
+
+  .search__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+  }
+
+  input {
+    width: 20rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    color: #555;
+    border: 1px solid #d5d7e0;
+    margin: 0, 0.5rem;
+  }
+  /*---> when the search is selected it shouldn't be highlighted <---*/
+  input:focus {
+    outline: none;
+  }
+}
