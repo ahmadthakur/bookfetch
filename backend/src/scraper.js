@@ -63,7 +63,7 @@ async function performScraping(searchTerm) {
           return;
         }
 
-        const downloadLink = `https://cdn1.booksdl.org/get.php?md5=${md5}&key=017CTP22EVYW2J2L&mirr=1`;
+        const downloadLink = `https://cdn3.booksdl.org/get.php?md5=${md5}&key=LW70HJ18FXZNF16R&mirr=1`;
 
         // Get the book cover image from openlibrary.org
         let bookCoverImage = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
