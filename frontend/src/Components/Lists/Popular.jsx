@@ -34,7 +34,7 @@ const Popular = () => {
         {popularBooks.map((book) => {
           return (
             <li className="book__list__item" key={book.rank}>
-              <Link to={`/book/${book.title}`}>
+              <Link to={`/book/${book.title}%${book.author}`}>
                 <img
                   className="book__cover"
                   src={book.book_image}
