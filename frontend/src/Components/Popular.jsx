@@ -13,8 +13,8 @@ const Popular = () => {
   useEffect(() => {
     const fetchPopularBooks = async () => {
       try {
-        // const response = await axios.get("https://ebook-site.fly.dev/api/data");
-        const response = await axios.get("http://localhost:8080/api/data");
+        const response = await axios.get("https://ebook-site.fly.dev/api/data");
+        // const response = await axios.get("http://localhost:8080/api/data");
         setBooks(response.data);
         console.log(response.data);
       } catch (error) {
