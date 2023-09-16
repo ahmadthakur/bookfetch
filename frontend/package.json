@@ -14,20 +14,25 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.8",
     "@mui/material": "^5.14.8",
+    "@nextui-org/react": "^2.1.12",
     "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "sass": "^1.66.1"
+    "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@vitejs/plugin-react": "^4.0.1",
+    "autoprefixer": "^10.4.15",
     "eslint": "^8.44.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3",
     "vite": "^4.4.0"
   }
 }
