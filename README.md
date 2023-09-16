@@ -2,8 +2,9 @@
 
 ReactLibgen is a web application built with React and Node.js that aims to provide an improved experience for searching and downloading books from Libgen (Library Genesis). With ReactLibgen, users can easily search for books, view book details, and download them with just a few clicks.
 
-![Screenshot](./images/msedge_u7YPPUBPQ2.png)
-![Screenshot](./images/msedge_sNpCHu44YM.png)
+<img src="./images/msedge_BzIwMn6ZHm.png" alt="Screenshot" width="400" />
+<img src="./images/msedge_Sg249hvoPQ.png" alt="Screenshot" width="400" />
+<img src="./images/msedge_rUUyefJjI9.png" alt="Screenshot" width="400" />
 
 ## Features
 
