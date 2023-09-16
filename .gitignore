@@ -3,3 +3,4 @@ fly.toml
 # Local Netlify folder
 .netlify
 Dockerfile
+.env
