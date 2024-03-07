@@ -1,6 +1,6 @@
-# ReactLibgen
+# BookFetch
 
-ReactLibgen is a web application built with React and Node.js that aims to provide an improved experience for searching and downloading books from Libgen (Library Genesis). With ReactLibgen, users can easily search for books, view book details, and download them with just a few clicks.
+BookFetch is a web application built with React and Node.js that aims to provide an improved experience for searching and downloading books from Libgen (Library Genesis). With BookFetch, users can easily search for books, view book details, and download them with just a few clicks.
 
 <img src="./images/msedge_BzIwMn6ZHm.png" alt="Screenshot" width="400" />
 <img src="./images/msedge_Sg249hvoPQ.png" alt="Screenshot" width="400" />
@@ -29,13 +29,13 @@ ReactLibgen is a web application built with React and Node.js that aims to provi
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/react-libgen.git
+   git clone https://github.com/ahmadthakur/bookfetch.git
 ````
 
 2. Navigate to the frontend directory:
 
    ```shell
-   cd react-libgen/frontend
+   cd bookfetch/frontend
    ```
 
 3. Install frontend dependencies:
@@ -57,7 +57,7 @@ ReactLibgen is a web application built with React and Node.js that aims to provi
 1. In a separate terminal window, navigate to the backend directory:
 
    ```shell
-   cd react-libgen/backend
+   cd bookfetch/backend
    ```
 
 2. Install backend dependencies:
